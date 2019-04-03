@@ -38,11 +38,12 @@ function CharacterStats(attr) {
   this.healthPoints = attr.healthPoints;
 }
 
+CharacterStats.prototype = Object.create(GameObject.prototype);
+
 CharacterStats.prototype.takeDamage = function () {
-  return `${this.name} took damage`;
+  return `${this.name} took damage.`;
 }
 
-CharacterStats.prototype = Object.create(GameObject.prototype);
 
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
@@ -61,12 +62,11 @@ function Humanoid(attr) {
   this.language = attr.language;
 }
 
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+
 Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}`;
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-Humanoid.prototype = Object.create(GameObject.prototype);
 
 /*
  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
